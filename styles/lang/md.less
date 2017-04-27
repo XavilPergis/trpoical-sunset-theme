@@ -1,0 +1,91 @@
+@import '../syntax-variables';
+
+.source.gfm {
+    .punctuation.definition {
+        &.begin,
+        &.end {
+            color: @base-4 !important;
+            font-weight: bold;
+        }
+    }
+
+    .list {
+      color: @base-5;
+    }
+
+    .markup {
+        &.underline.link {
+            color: @accent !important;
+        }
+
+        .list {
+            &.ordered {
+                font-style: italic;
+            }
+        }
+
+        .quote.support {
+            font-weight: bold;
+        }
+
+        &.bold {
+            color: @base-4;
+            font-weight: bold;
+        }
+
+        &.strike {
+          text-decoration: line-through;
+        }
+
+        &.changed {
+            color: @syntax-comment;
+        }
+
+        &.deleted {
+            color: @syntax-comment;
+        }
+
+        &.italic {
+            color: @base-4;
+            font-style: italic;
+        }
+
+        &.heading .punctuation.definition.heading {
+            color: @base-4;
+        }
+
+        &.inserted {
+            color: @accent;
+        }
+
+        &.list {
+            color: @accent;
+        }
+
+        &.quote {
+            color: @accent;
+        }
+
+        &.raw {
+            color: @base-4;
+        }
+
+        &.heading {
+            color: @base-4;
+            &.heading-1 {
+                font-weight: bold;
+                font-style: italic;
+            }
+            &.heading-2 {
+                font-weight: bold;
+            }
+            &.heading-3 {
+                font-style: italic;
+            }
+        }
+    }
+}
+
+.spell-check-misspelling .region {
+    border-bottom: 2px dotted @base-4;
+}

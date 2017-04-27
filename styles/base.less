@@ -1,0 +1,219 @@
+@import 'syntax-variables';
+
+// XXX EDITOR XXX --------------------------------------------------------------
+
+atom-text-editor, :host {
+
+  // Very important colors here; they set the colors for the entire viewport
+  background: @syntax-background;
+  color: @syntax-text;
+
+  // The line at which you should wrap your code
+  .wrap-guide {
+    background: @wrap-guide;
+  }
+
+  // The lines that show how far you've indented
+  .indent-guide {
+    color: @indent-guide;
+  }
+
+  // Invisible characters
+  .invisible-character {
+    color: @invisible-character;
+  }
+
+  // REVIEW: What is this?
+  .invisible {
+    color: @syntax-text;
+  }
+
+  // Text cursor
+  .cursor {
+    color: @syntax-cursor;
+  }
+
+  // Selected text
+  .selection .region {
+    background: @syntax-selection;
+  }
+}
+
+atom-text-editor .search-results {
+  // Highlighting around matched searches
+  .marker .region {
+    background: transparent;
+    border-bottom: 3px solid @syntax-result-marker;
+  }
+
+  // And the highlighting for when the result is currently selected
+  .marker.current-result .region {
+    border-bottom: 3px solid @syntax-result-marker-selected;
+  }
+}
+
+// Comments
+.comment {
+  color: @syntax-comment;
+
+  // Aparently things like TODO and REVIEW
+  .storage {
+    &.xxx, &.todo, &.fixme, &.review {
+      color: @syntax-marker-comment;
+      font-weight: bold;
+    }
+  }
+}
+
+
+.keyword {
+  color: @syntax-keyword;
+  font-weight: bold;
+
+  // Control keywords like `if` or `for`
+  &.control {
+    color: @syntax-control-keyword;
+  }
+
+  // Operators. Like `+` and `-`
+  &.operator {
+    color: @syntax-operator-keyword;
+  }
+
+  // Builtin methods. Like `require` or LiveScript's `map`
+  &.other.special-method {
+    color: @syntax-builtin;
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  // Suffixes on CSS properties. Like `px` and `em`
+  &.other.unit {
+    color: @syntax-unit-keyword;
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+// Rust's `impl` block is this for whatever reason.
+.storage {
+  &.type {
+    color: @syntax-type;
+    font-weight: bold;
+  }
+
+  &.modifier {
+    color: @syntax-keyword;
+    font-weight: bold;
+    // font-style: italic;
+  }
+}
+
+.constant {
+  color: @syntax-constant;
+
+  &.character.escape {
+    color: @syntax-escape-code;
+  }
+
+  // Number literals
+  &.numeric {
+    color: @syntax-number-literal;
+  }
+}
+
+.variable {
+  color: @syntax-variable;
+
+  // Function paramaters
+  &.parameter.function {
+    color: @syntax-parameter;
+  }
+}
+
+// For when you type that one character that makes half your screen blood red.
+.invalid.illegal {
+  background: @error-bg;
+  color: @syntax-background;
+}
+
+// String literals
+.string {
+  color: @syntax-string-literal;
+
+  // Regex literals.
+  &.regexp {
+    color: @syntax-regex-literal;
+  }
+
+  .embedded {
+    color: @syntax-embedded-string;
+  }
+}
+
+.support.function.builtin {
+  color: @syntax-builtin;
+}
+
+.entity {
+  &.name.function {
+    color: @syntax-function-name;
+    font-weight: bold;
+  }
+
+  &.name.function.decorator {
+    color: @syntax-decorator;
+  }
+
+  &.name.type {
+    color: @syntax-type-name;
+    // font-weight: bold;
+    // text-decoration: underline;
+  }
+
+  &.other.inherited-class {
+    color: @syntax-class-name;
+    font-style: italic;
+  }
+
+  &.name.class, &.name.type.class {
+    color: @syntax-class-name;
+    font-weight: bold;
+  }
+
+  &.name.section {
+    color: @syntax-section;
+    font-weight: bold;
+  }
+
+  &.name.tag {
+    color: @syntax-tag;
+    font-weight: bold;
+  }
+
+  &.other.attribute-name {
+    color: @syntax-attribute-name;
+    font-weight: bold;
+
+    &.id {
+      color: @syntax-id;
+      font-weight: bold;
+    }
+  }
+}
+
+.meta {
+  &.attribute,
+  &.annotation {
+    color: @syntax-attribute;
+  }
+}
+
+.none {
+  color: @syntax-text;
+}
+
+atom-text-editor[mini] .scroll-view,
+:host([mini]) .scroll-view {
+  padding-left: 1px;
+}

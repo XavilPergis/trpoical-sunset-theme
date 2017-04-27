@@ -1,0 +1,13 @@
+@import '../syntax-variables';
+
+@linter-error-underline: darken(@accent, 10%);
+
+.gutter[gutter-name='linter'],
+.gutter[gutter-name='linter'] > .custom-decorations {
+    background-color: @syntax-background !important;
+}
+
+atom-text-editor::shadow .linter-highlight.error .region,
+.linter-highlight.error .region {
+    border-bottom: 1px solid @linter-error-underline !important;
+}
